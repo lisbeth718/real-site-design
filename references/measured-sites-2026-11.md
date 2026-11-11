@@ -1,6 +1,8 @@
 # Real-world design references (measured 2026-11-12)
 
-> These are measurements of public sites taken on 2026-11-12. Sites change their design, fonts and colours often, so treat every value as a snapshot and re-measure before relying on it: `node scripts/measure.mjs <url> ...`. If a category you need is not here, measure 3 sites of your own.
+> These are measurements of public sites. Each category has a "Last measured" date. Re-measure a category when that date is more than 6 months old, and measure 3 sites of your own when your category is missing: `node scripts/measure.mjs <url> <url> <url>`. When you add or update a category, set its "Last measured" date.
+>
+> The values below were taken with the first version of `measure.mjs` plus hand probes and screenshots. The current script detects nav, buttons, cards and footer columns differently, so when you re-measure, replace a whole category rather than mixing old and new values.
 
 ## Method
 
@@ -24,6 +26,8 @@
 ---
 
 ## 1. Pet sitter marketplaces
+
+Last measured: 2026-11-12
 
 Sources: https://www.pawshake.fi/ , https://www.borrowmydoggy.com/ , https://www.trustedhousesitters.com/ (all fetched 2026-11-12)
 
@@ -57,6 +61,8 @@ Sources: https://www.pawshake.fi/ , https://www.borrowmydoggy.com/ , https://www
 ---
 
 ## 2. Price comparison and consumer info
+
+Last measured: 2026-11-12
 
 Sources: https://hintaopas.fi/ , https://www.vertaa.fi/ , https://www.which.co.uk/ , plus the rental page https://www.motonet.fi/palvelut/motokarry (all fetched 2026-11-12)
 
@@ -93,6 +99,8 @@ Sources: https://hintaopas.fi/ , https://www.vertaa.fi/ , https://www.which.co.u
 
 ## 3. Health and relationship reading sites
 
+Last measured: 2026-11-12
+
 Sources: https://www.terveyskyla.fi/ , https://www.vaestoliitto.fi/ , https://www.nhs.uk/ . Article pages measured too: https://www.terveyskyla.fi/naistalo/raskaus/raskauden-tuomat-muutokset-ja-yleiset-huolenaiheet/hiiva-raskauden-aikana , https://www.vaestoliitto.fi/seksuaalisuus/seksuaalioikeudet/oikeus-tietoon-seksuaalisuudesta/ , https://www.nhs.uk/conditions/chlamydia/ (all 2026-11-12)
 
 | | Terveyskylä.fi | Väestöliitto.fi | NHS.uk |
@@ -128,6 +136,8 @@ Extra, not one of the 3: Scarleteen (https://www.scarleteen.com/ , sex-ed Q&A) u
 ---
 
 ## 4. Finance calculators
+
+Last measured: 2026-11-12
 
 Sources: https://www.omnicalculator.com/ + https://www.omnicalculator.com/finance/burn-rate ; https://www.calculator.net/ + https://www.calculator.net/business-loan-calculator.html ; https://www.nerdwallet.com/ + https://www.nerdwallet.com/banking/calculators/compound-interest-calculator (all 2026-11-12)
 

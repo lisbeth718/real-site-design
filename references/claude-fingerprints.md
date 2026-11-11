@@ -207,3 +207,39 @@ Main finding: the stated "direction" changes the font, the colour and one hero g
 6. Its concept can be named "<site> as a <printed object>".
 7. Fonts are a grotesk + mono pair from Google Fonts.
 8. The footer is one line.
+
+## Automated checks (`scripts/check.mjs`)
+
+`node scripts/check.mjs <url-or-file>` runs the measurable tests above at 1440 and 390 wide and prints PASS/FAIL with the measured value. It exits 1 on any FAIL. The thresholds:
+
+| Check id | Fingerprint | FAIL when |
+|---|---|---|
+| `h1-display` | 3 | h1 size is fluid (clamp/vw in CSS, or it changes between 1100/1150 and 820/860px), tracking is negative and line-height is 1.05 or less |
+| `palette` | 4 | page background is white (luminance 0.97+) or cream (luminance 0.83+, hue 30-60, saturation under 0.5) and fewer than 2 accent hues are used 3+ times |
+| `accent-hue` | 5 | the most used accent is brick red (hue 0-15, lightness 0.3-0.45) or cobalt (hue 218-232, saturation over 0.6) |
+| `shell` | 2 | a centred 1200-1440px max-width wrapper exists and no full-width band (own background, image or full-width media) breaks it |
+| `ruled-lists` | 6 | more than 2 unstyled lists whose items are separated by 1-2px rules |
+| `thick-thin-rules` | 7 | at least one 2-4px dark rule and 2+ hairline rules |
+| `photos` | 8 | no raster image, video or raster background (skip with `--allow-no-photos`) |
+| `uppercase-labels` | 11 | an uppercase tracked label under 15px sits right above an h1/h2, or 3+ such labels |
+| `middots` | 11 | a " · " separator in the first 900px, or 3+ on the page |
+| `font-families` | 10 | 2+ font families each set 3%+ of the visible text |
+| `mono` | 10, 18 | any mono font outside code/pre/kbd/samp |
+| `footer` | 19 | no footer, 1 or fewer link columns, or under 120px tall |
+| `square-corners` | 14 | 80%+ of boxed buttons, inputs and cards have no radius |
+| `h2-lead` | 15 | 40%+ of h2s (3 or more on the page) are followed by a 10-25 word paragraph narrower than 620px |
+| `split-hero` | 16 | the h1 column sits beside a column holding a form, table or list |
+| `code-skeleton` | 12 | 3+ of the `--bg/--ink/--ink-2/--line/--focus/...` tokens on :root, or aria-labelledby on every section |
+| `tabular-nums` | 18 | tabular-nums on 3+ text elements outside tables |
+| `date-stamps` | 17 | 2+ "checked/updated <date>" stamps |
+| `overflow-390` | layout | the page scrolls sideways at 390px |
+| `tap-targets` | access | any control under 44x44px at 390px (links inside running text are exempt) |
+| `contrast` | access | any text under 4.5:1 (3:1 for 24px+, or 18.66px+ bold); text over images is not checked |
+| `copy-triplets` | 13 | more than 3 "A, B and C" lists, in 8%+ of sentences |
+| `copy-how-it-works` | 13 | a "How it works", "Näin ...", "Miten ... toimii" or "X in short" heading |
+| `copy-reassurance` | 13 | a one-line reassurance of 8 words or fewer ("No account needed", "Free", "No sign-up") |
+| `copy-dashes` | copy | any em dash, or an en dash with spaces round it |
+| `copy-short-sentences` | 13 | over 40% of 8+ prose sentences have 8 words or fewer |
+| `h1-full-stop` | 13 | the h1 ends with a full stop |
+
+Not automated: fingerprint 1 (compare the h1/h2 text of two directions) and 9 (the direction's name). Real sites fail some checks too, most often `tap-targets`, `contrast` and `square-corners`. If all 3 references fail a check, it is a category convention, not an AI tell: say so in the report instead of hiding the FAIL.
