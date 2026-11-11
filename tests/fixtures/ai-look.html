@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- Test fixture: a deliberately "AI-looking" page. check.mjs must fail it on
+     many fingerprints. Fictional content, not a real service. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Van hire prices</title>
+<style>
+  :root {
+    --bg: #f4efe4;
+    --ink: #1a1714;
+    --ink-2: #6b645a;
+    --line: #d6cdbb;
+    --focus: #8c2b1f;
+    --wide: 1280px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.5 "Bricolage Grotesque", Georgia, serif; }
+  .shell { max-width: 1280px; margin: 0 auto; padding: 18px clamp(16px, 4vw, 48px); }
+  a { color: #8c2b1f; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  header.shell { border-top: 3px solid var(--ink); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
+  header nav a { font-size: 13px; margin-left: 12px; }
+  .kicker { font: 500 13px/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; color: #8c2b1f; margin: 0 0 8px; }
+  h1 { font-size: clamp(46px, 6.4vw, 92px); line-height: 0.95; letter-spacing: -0.04em; margin: 0 0 16px; text-wrap: balance; }
+  h2 { font-size: 32px; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 8px; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  .lead { max-width: 28rem; color: var(--ink-2); margin: 0 0 24px; }
+  form { border: 1px solid var(--line); padding: 20px; }
+  form label { display: block; font: 500 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; color: #8c2b1f; }
+  input { width: 100%; border: 1px solid var(--ink); border-radius: 0; padding: 6px; font: inherit; margin-bottom: 10px; background: transparent; }
+  button { background: #8c2b1f; color: #fff; border: 0; border-radius: 0; padding: 6px 14px; font: inherit; }
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  ol, ul.rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; align-items: baseline; border-top: 1px solid var(--line); padding: 10px 0; }
+  .rows li span:first-child { color: #8c2b1f; font-family: "IBM Plex Mono", monospace; }
+  .price { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: #8c2b1f; }
+  .muted { color: #b3ab9d; font-size: 14px; }
+  table { border-collapse: collapse; min-width: 720px; }
+  td { border-top: 1px solid var(--line); padding: 6px 12px; }
+  footer.shell { border-top: 2px solid var(--ink); font-size: 14px; }
+  footer a { margin-left: 8px; font-size: 13px; }
+</style>
+</head>
+<body>
+<header class="shell">
+  <strong>vanprice</strong>
+  <nav><a href="#guides">Guides</a><a href="#prices">Prices</a><a href="#about">About</a></nav>
+</header>
+<main class="shell">
+  <div class="hero">
+    <div>
+      <p class="kicker">29 prices &middot; checked 9.11.2026</p>
+      <h1>What a trailer, van or move really costs.</h1>
+      <p class="lead">Compare daily rates for trailers, vans and moving help across the city in one quiet table.</p>
+      <p class="muted">No account needed.</p>
+    </div>
+    <form aria-label="Quote">
+      <label for="from">From</label><input id="from" placeholder="Postcode">
+      <label for="days">Days</label><input id="days" placeholder="1">
+      <button type="submit">Get the price</button>
+      <p class="muted">Free. No sign-up. The form does not commit you to anything.</p>
+    </form>
+  </div>
+
+  <section aria-labelledby="h-how">
+    <h2 id="h-how">How it works</h2>
+    <p class="lead">Pick a vehicle, pick a day and see what the hire, the fuel and the insurance add up to.</p>
+    <ol class="rows">
+      <li><span>1</span><span>Choose a trailer, a van or a lorry</span><span class="price">&euro;20</span></li>
+      <li><span>2</span><span>Set the date, the time and the place</span><span class="price">&euro;45</span></li>
+      <li><span>3</span><span>Compare prices, extras and deposits</span><span class="price">&euro;60</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-prices">
+    <h2 id="h-prices">Prices in short</h2>
+    <p class="lead">Daily rates for vans, trailers and lorries from the big chains, checked by hand every week.</p>
+    <ul class="rows">
+      <li><span>Van</span><span>Small, medium or large</span><span class="price">&euro;59</span></li>
+      <li><span>Trailer</span><span>Open, covered or car</span><span class="price">&euro;19</span></li>
+      <li><span>Lorry</span><span>Short, long or tail lift</span><span class="price">&euro;99</span></li>
+    </ul>
+    <p class="muted">Updated 9.11.2026 &middot; 29 prices &middot; source on every price</p>
+  </section>
+
+  <section aria-labelledby="h-guides">
+    <h2 id="h-guides">Guides</h2>
+    <p class="lead">Short guides on loading, insurance and parking for anyone moving house this year.</p>
+    <ul class="rows">
+      <li><span>01</span><a href="#g1">Loading a van &mdash; the basics</a><span class="muted">4 min</span></li>
+      <li><span>02</span><a href="#g2">Insurance, deposits and damage</a><span class="muted">6 min</span></li>
+      <li><span>03</span><a href="#g3">Parking, permits and fines</a><span class="muted">3 min</span></li>
+    </ul>
+    <div style="overflow:visible"><table><tr><td>Day</td><td>Van</td><td>Trailer</td><td>Lorry</td><td>Deposit</td><td>Fuel</td></tr></table></div>
+  </section>
+
+  <section aria-labelledby="h-about">
+    <h2 id="h-about">About</h2>
+    <p class="lead">One person, one spreadsheet and a habit of calling rental desks to check the numbers.</p>
+    <p>It is simple. It is fast. It is honest. Prices change &mdash; we check them. Fair, clear and calm.</p>
+  </section>
+</main>
+<footer class="shell">
+  <strong>vanprice</strong> &middot; van and trailer prices &middot; <a href="#privacy">Privacy</a><a href="#contact">Contact</a>
+</footer>
+</body>
+</html>
